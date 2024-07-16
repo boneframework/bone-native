@@ -2,8 +2,8 @@ import useAuth from '@boneframework/native-components/hooks/useAuth';
 import { Redirect, Stack } from 'expo-router';
 import {Text} from "react-native";
 
-
 export default function AppLayout() {
+
     const { user } = useAuth();
 
     // You can keep the splash screen open, or render a loading screen like we do here.
