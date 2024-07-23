@@ -9,7 +9,7 @@ export default function Root() {
     return (
         // <TestZone></TestZone>
         <SessionProvider>
-            <Slot />
+            <Slot/>
         </SessionProvider>
     );
 }
