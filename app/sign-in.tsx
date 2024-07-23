@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import {Redirect, router} from 'expo-router';
 import { Text, View } from 'react-native';
 import * as WebBrowser from "expo-web-browser";
 import {exchangeCodeAsync, makeRedirectUri, useAuthRequest} from "expo-auth-session";
@@ -13,7 +13,7 @@ import settings from "@/config/settings";
 WebBrowser.maybeCompleteAuthSession();
 
 export default function SignIn() {
-    const { user } = useAuth();
+    const { login, isLoading } = useAuth();
     const profileApi = useApi(usersApi.getProfile);
 
     const discovery = {
@@ -63,21 +63,19 @@ export default function SignIn() {
             extraParams: { code_verifier: request.codeVerifier }
         }, discovery)
             .then(async response => {
-                const profile = await profileApi.request(response.accessToken)
-                const data = {
-                    accessToken: response.accessToken,
-                    refreshToken: response.refreshToken,
-                    user: profile.data
-                }
-                signIn(data);
+                await login(response);
+                router.navigate('/');
             })
             .catch(error => console.error(error));
     }
+
+
 
     return (
         <WelcomeScreen
             loginOnPress={beginLogin}
             registerOnPress={() => router.navigate('/register')}
+            isLoading={isLoading}
         ></WelcomeScreen>
     );
 }
