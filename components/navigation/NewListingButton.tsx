@@ -3,7 +3,7 @@ import {StyleSheet, TouchableOpacity, View} from "react-native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 
 import colors from '../config/colors'
-import useStyle from "../hooks/useStyle";
+import useStyle from "@boneframework/native-components/hooks/useStyle";
 
 function NewListingButton({ onPress }) {
     const style = useStyle();

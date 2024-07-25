@@ -1,20 +1,18 @@
 import React from 'react';
-import {createStackNavigator} from "@react-navigation/stack";
+import {Stack} from 'expo-router';
 
 import ListingsScreen from '../screens/ListingsScreen';
 import ListingDetailsScreen from '../screens/ListingDetailsScreen';
 
-const Stack = createStackNavigator();
-
 const FeedNavigator = () => (
-    <Stack.Navigator
+    <Stack>
         initialRouteName={'Listings'}
         screenOptions={{presentation: 'modal'}}
         options={{headerShown: false}}
     >
-        <Stack.Screen name={'Feed'} component={ListingsScreen} />
-        <Stack.Screen name={'ListingDetails'} component={ListingDetailsScreen} options={{headerShown: false}} />
-    </Stack.Navigator>
+        <Stack.Screen name={'/listings'} options={{label: 'Listings'}} />
+        <Stack.Screen name={'/listings/details'} options={{ label: 'Listing Details', headerShown: false}} />
+    </Stack>
 )
 
 export default FeedNavigator;
