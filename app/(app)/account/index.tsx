@@ -6,9 +6,11 @@ import Screen from '@boneframework/native-components/components/Screen'
 import ListItemSeparator from "@boneframework/native-components/components/ListItemSeparator";
 import useAuth from "@boneframework/native-components/hooks/useAuth";
 import useStyle from "@boneframework/native-components/hooks/useStyle";
+import {GestureHandlerRootView} from "react-native-gesture-handler";
 
 import colors from '@/config/colors'
-// import routes from "../../../navigation/routes";
+import routes from "../../../config/routes";
+import {router} from "expo-router";
 
 const menuItems = [
     {
@@ -37,7 +39,7 @@ const menuItems = [
     },
 ];
 
-function Account({ navigation }) {
+function Index() {
     const { user, logout } = useAuth();
     const style = useStyle();
 
@@ -52,37 +54,39 @@ function Account({ navigation }) {
 
     return (
         <Screen style={styles.screen}>
-            <View style={styles.container}>
+            <GestureHandlerRootView>
+                <View style={styles.container}>
+                    <ListItemSwipable
+                        title={user.person?.firstname}
+                        subtitle={user.email}
+                        image={{ uri: user.person?.image}}
+                        onPress={() => router.navigate(routes.USER_EDIT_PROFILE)}
+                    />
+                </View>
+                <View style={styles.container}>
+                    <FlatList
+                        data={menuItems}
+                        ItemSeparatorComponent={() => <ListItemSeparator />}
+                        keyExtractor={menuItem => menuItem.title}
+                        renderItem={ ({item}) =>
+                            <ListItemSwipable
+                                title={item.title}
+                                IconComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />}
+                                onPress={() => router.navigate(item.targetScreen) }
+                            />
+                        }
+                    />
+                </View>
                 <ListItemSwipable
-                    title={user.person?.firstname}
-                    subtitle={user.email}
-                    image={{ uri: user.person?.image}}
-                    onPress={() => navigation.navigate(routes.USER_EDIT_PROFILE)}
-                />
-            </View>
-            <View style={styles.container}>
-                <FlatList
-                    data={menuItems}
-                    ItemSeparatorComponent={() => <ListItemSeparator />}
-                    keyExtractor={menuItem => menuItem.title}
-                    renderItem={ ({item}) =>
-                        <ListItemSwipable
-                            title={item.title}
-                            IconComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />}
-                            onPress={() => navigation.navigate(item.targetScreen) }
-                        />
+                    title="Log Out"
+                    IconComponent={
+                        <Icon name="logout" backgroundColor="#ffe66d" />
                     }
+                    onPress={logout}
                 />
-            </View>
-            <ListItemSwipable
-                title="Log Out"
-                IconComponent={
-                    <Icon name="logout" backgroundColor="#ffe66d" />
-                }
-                onPress={logout}
-            />
+            </GestureHandlerRootView>
         </Screen>
     );
 }
 
-export default Account;
+export default Index;

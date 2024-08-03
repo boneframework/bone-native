@@ -13,8 +13,11 @@ import settings from "@/config/settings";
 WebBrowser.maybeCompleteAuthSession();
 
 export default function SignIn() {
-    const { login, isLoading } = useAuth();
-    const profileApi = useApi(usersApi.getProfile);
+    const { login, isLoading, user } = useAuth();
+
+    if (isLoading === false && user && user.email) {
+        return <Redirect href={'/'} />
+    }
 
     const discovery = {
         authorizationEndpoint: settings.discovery.authEndpoint,
@@ -42,7 +45,6 @@ export default function SignIn() {
             const { code } = response.params;
             getAccessToken(code);
         }
-
     }, [response]);
 
     const beginLogin = () => {

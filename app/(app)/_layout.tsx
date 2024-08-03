@@ -3,10 +3,8 @@ import OfflineNotice from "@boneframework/native-components/components/OfflineNo
 import useAuth from '@boneframework/native-components/hooks/useAuth';
 import useStyle from "@boneframework/native-components/hooks/useStyle";
 import {Redirect, Stack, Tabs} from 'expo-router';
-import {Text} from "react-native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 import NewListingButton from "@/components/navigation/NewListingButton";
-import AccountNavigator from "@/components/navigation/AccountNavigator";
 import React from "react";
 
 export default function AppLayout() {
@@ -24,6 +22,7 @@ export default function AppLayout() {
             <ApiInterceptor></ApiInterceptor>
             <Tabs
                 screenOptions={{
+                    headerShown: false,
                     tabBarActiveTintColor: "tomato",
                     tabBarActiveBackgroundColor: style.backgroundColor,
                     tabBarInactiveBackgroundColor: style.backgroundColor,
@@ -40,7 +39,7 @@ export default function AppLayout() {
                 }}
             >
                 <Tabs.Screen
-                    name={'listings'}
+                    name={'(listing)'}
                     options={{
                         tabBarIcon: ({size, color}) => <MaterialCommunityIcons name={'home'} size={size} color={color}/>,
                         title: 'Listings',
@@ -48,9 +47,9 @@ export default function AppLayout() {
                     }}
                 />
                 <Tabs.Screen
-                    name={'addListing'}
+                    name={'add-listing'}
                     options={ ({ navigation }) => ({
-                        tabBarButton: props => (<NewListingButton onPress={ () => navigation.navigate('/listings/edit') } />)
+                        tabBarButton: props => (<NewListingButton onPress={ () => navigation.navigate('add-listing') } />)
                     })
                     }
                 />
