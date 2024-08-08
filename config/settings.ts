@@ -4,7 +4,7 @@ const settings = {
     dev: {
         apiUrl: 'https://awesome.scot',
         authCallbackURL: 'oauth2/callback',
-        clientId: '32815de2c0a25d239ff0585674c938a9',
+        clientId: 'be121740bf988b2225a313fa1f107ca1',
         discovery: {
             authEndpoint: 'https://awesome.scot/en_GB/oauth2/authorize',
             tokenEndpoint: 'https://awesome.scot/en_GB/oauth2/token',

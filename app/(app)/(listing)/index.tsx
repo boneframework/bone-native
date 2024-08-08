@@ -11,12 +11,14 @@ import {router} from 'expo-router';
 
 import listingsApi from '@/api/listings'
 import routes from '../../../config/routes'
+import useNotifications from "@boneframework/native-components/hooks/useNotifications";
 
 function Index() {
 
     const getListingsApi = useApi(listingsApi.getListings);
     const [refreshing, setRefreshing] = useState(false);
     const style = useStyle();
+    useNotifications();
 
     useEffect(() => {
         getListingsApi.request();

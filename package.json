@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -15,7 +14,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@boneframework/native-components": "^1.0.19",
+    "@boneframework/native-components": "^1.0.21",
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/native": "^6.0.2",
     "expo": "~51.0.24",
