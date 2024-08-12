@@ -1,50 +1,99 @@
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+# bone-native
+A React Native Expo managed skeleton project configured for use with Bone Framework Oauth2 API.
+## requirements
+- Expo CLI https://docs.expo.dev/get-started/installation/
+- Expo Go iOS https://apps.apple.com/us/app/expo-go/id982107779
+- Expo Go Android https://play.google.com/store/apps/details?id=host.exp.exponent&gl=US
+- Proxyman https://proxyman.io/
+- Optional but recommended for the backend is to use the Docker dev environment https://github.com/delboy1978uk/lamp.
+## installation
+### frontend
+Clone the repository, then remove our git repo info and initialise your own, and commit the files
 ```
+git clone git@github.com:delboy1978uk/bone-native.git newprojectname
+cd newprojectname
+rm -fr .git
+git init
+git add .
+git commit -a
+```
+### backend
+A pre-configured project built using Bone Framework with OAuth2 login
+https://github.com/delboy1978uk/bone-native-backend-api
+This example uses the recommended Docker dev environment for the backend.
+```
+git clone git@github.com:delboy1978uk/lamp.git lampstack
+cd lampstack
+rm -fr .git
+rm -fr code
+git clone git@github.com:delboy1978uk/bone-native-backend-api.git code
+cd code
+rm -fr .git
+git init
+git add .
+git commit -a
+```
+## setup
+### dev domain & ssl certificate
+You can edit the virtual host settings if using the Docker LAMP project in the `docker-compose.yml`, `build/httpd/Dockerfile`,
+and `build/httpd/httpd-vhosts.conf`.
+where self signed certificate generation code should be tweaked. The default dev domain is `https://awesome.scot`. Whatever you set
+this domain as, remember to add `127.0.0.1 awesome.scot` (or your custom domain) to your development machine's `/etc/hosts` file.
+If you change the domain name, be sure to run `docker compose build`.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Next you need the SSL certificate to be trusted on your iPhone/Android.
 
-## Learn more
+If using docker, start up the server, then copy the certificate from inside the docker container to a new file
+on your dev machine.
+```
+cd /path/to/lampstack
+bin/start
+```
+Open another tab, then jump into the container defined in the LAMP `docker-compose.yml` ...
+```
+docker compose exec awesome.scot bash
+cd /etc/ssl/certs
+cat selfsigned.crt
+exit
+```
+Use whichever text editor you like to create `~/Desktop/selfsigned.crt`, pasting in the contents.
 
-To learn more about developing your project with Expo, look at the following resources:
+The following instructins are for iPhone. Android will be different, but the idea is to add the certificate to the Trust Store.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Send your `selfsigned.crt` to your iPhone via airdrop, install the profile in the Settings app.
+- On the iPhone, go into the Settings app and install the profile
+- Startup Proxyman on your dev machine
+- In your iPhone Wifi settings, set the proxy as your dev box IP and port 9090 (or whatever your proxy port is)
+- Open Safari and goto `proxy.man/ssl`, again install the Profile in Settings
+- Finally, go into `Settings > General > About > Certificate Trust Settings`, and switch on Enable Full Trust for both the proxy man cert and your dev domain self signed cert.
+  You should now be able to browse to `https://awesome.scot` on yoour iPhone, with a fully secure padlock.
+### frontend
+Frontend config files that should be changed are the `./app.json` in the project root and the files found in `./app/config`.
+### backend
+Backend Bone Framework config files are found in the `./config` folder.
+Detailed instructions for how to configure the backend will be added in the future.
+Quickly though, start up the lamp stack (see deverlopment section below) and then it's;
+```
+bin/terminal php
+composer install
+bone migrant:diff
+bone migrant:migrate
+bone migrant:generate-proxies
+bone migrant:fixtures
+bone assets:deploy
+```
+## development
+Start up proxyman, and set your device's Wifi connection to use the proxy.
 
-## Join the community
+Start up the PHP backend. If using the docker LAMP stack then it's simply
+```
+cd /path/to/lampstack
+bin/start
+```
+Start up the frontend
+```
+cd /path/to/bone-native-project
+npx expo start
+```
+To stop the backend, press `CTRL-C`, then type `bin/stop` to tidy up. To stop the  frontend, it's simply `CTRL-C`.
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
