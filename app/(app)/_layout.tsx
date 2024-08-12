@@ -60,6 +60,13 @@ export default function AppLayout() {
                         headerShown: false
                     }}
                 />
+                <Tabs.Screen
+                    name={'user/check-your-email'}
+                    options={{
+                        href: null,
+                        headerShown: false
+                    }}
+                />
             </Tabs>
         </>
    );

@@ -19,7 +19,7 @@ const menuItems = [
             name: "cog",
             backgroundColor: colors.primary
         },
-        targetScreen: 'Settings'
+        targetScreen: '/account/settings'
     },
     {
         title: "Sample Map",
@@ -27,7 +27,7 @@ const menuItems = [
             name: "map-marker",
             backgroundColor: colors.secondary
         },
-        targetScreen: 'Sample Map'
+        targetScreen: '/account/map'
     },
     {
         title: "My Messages",
@@ -35,7 +35,7 @@ const menuItems = [
             name: "email",
             backgroundColor: colors.primary
         },
-        targetScreen: 'Messages'
+        targetScreen: '/account/messages'
     },
 ];
 
