@@ -1,4 +1,4 @@
-import {Slot} from 'expo-router';
+import {Slot, Stack} from 'expo-router';
 import SessionProvider from '@boneframework/native-components/components/SessionProvider';
 import useNavigationTheme from '@boneframework/native-components/hooks/useNavigationTheme';
 

@@ -7,12 +7,14 @@ import {MaterialCommunityIcons} from "@expo/vector-icons";
 import NewListingButton from "@/components/navigation/NewListingButton";
 import React from "react";
 
+import routes from '@/config/routes';
+
 export default function AppLayout() {
     const { user} = useAuth();
     const style = useStyle();
 
     if (!user || user === 'null') {
-        return <Redirect href="/sign-in" />;
+        return <Redirect href="/user/sign-in" />;
     }
 
     return (
@@ -38,7 +40,7 @@ export default function AppLayout() {
                 }}
             >
                 <Tabs.Screen
-                    name={'(listing)'}
+                    name={routes.LISTINGS}
                     options={{
                         tabBarIcon: ({size, color}) => <MaterialCommunityIcons name={'home'} size={size} color={color}/>,
                         title: 'Listings',
@@ -46,24 +48,17 @@ export default function AppLayout() {
                     }}
                 />
                 <Tabs.Screen
-                    name={'add-listing'}
+                    name={routes.LISTING_ADD}
                     options={ ({ navigation }) => ({
-                        tabBarButton: props => (<NewListingButton onPress={ () => navigation.navigate('add-listing') } />)
+                        tabBarButton: props => (<NewListingButton onPress={ () => navigation.navigate(routes.LISTING_ADD) } />)
                     })
                     }
                 />
                 <Tabs.Screen
-                    name={'account'}
+                    name={routes.ACCOUNT_SCREEN}
                     options={{
                         title: 'Account',
                         tabBarIcon: ({size, color}) => <MaterialCommunityIcons name={'account'} size={size} color={color}/>,
-                        headerShown: false
-                    }}
-                />
-                <Tabs.Screen
-                    name={'/user/check-your-email'}
-                    options={{
-                        href: null,
                         headerShown: false
                     }}
                 />

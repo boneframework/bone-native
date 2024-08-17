@@ -8,6 +8,7 @@ import useApi from "@boneframework/native-components/hooks/useApi";
 import usersApi from "@boneframework/native-components/api/users";
 
 import {useEffect} from "react";
+import routes from "@/config/routes";
 import settings from "@/config/settings";
 
 WebBrowser.maybeCompleteAuthSession();
@@ -66,7 +67,7 @@ export default function SignIn() {
         }, discovery)
             .then(async response => {
                 await login(response);
-                router.navigate('/');
+                router.navigate(routes.WELCOME);
             })
             .catch(error => console.error(error));
     }
@@ -76,7 +77,7 @@ export default function SignIn() {
     return (
         <WelcomeScreen
             loginOnPress={beginLogin}
-            registerOnPress={() => router.navigate('/register')}
+            registerOnPress={() => router.navigate(routes.USER_REGISTRATION)}
             isLoading={isLoading}
         ></WelcomeScreen>
     );
