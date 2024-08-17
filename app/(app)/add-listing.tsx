@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {KeyboardAvoidingView, Platform, StyleSheet} from "react-native";
 import * as Yup from "yup";
-
+import useApi from '@boneframework/native-components/hooks/useApi'
+import UploadScreen from '@boneframework/native-components/screens/UploadScreen'
+import useLocation from '@boneframework/native-components/hooks/useLocation'
+import useStyle from "@boneframework/native-components/hooks/useStyle";
 import CategoryPickerItem from '@boneframework/native-components/components/CategoryPickerItem'
 import {
     Form,
@@ -12,11 +15,8 @@ import {
 } from '@boneframework/native-components/components/forms'
 import Screen from '@boneframework/native-components/components/Screen'
 import Text from '@boneframework/native-components/components/Text'
+
 import {postListings} from "@/api/listings";
-import useApi from '@boneframework/native-components/hooks/useApi'
-import UploadScreen from '@boneframework/native-components/screens/UploadScreen'
-import useLocation from '@boneframework/native-components/hooks/useLocation'
-import useStyle from "@boneframework/native-components/hooks/useStyle";
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label('Title'),
@@ -54,6 +54,7 @@ function AddListing(props) {
     const listingsApi = useApi(postListings)
 
     const handleSubmit = async (listing, { resetForm }) => {
+        alert('This is just a demo, the data is being posted but the API is not adding to the DB');
         setProgress(0);
         setProgressVisible(true);
         const result =  await listingsApi.request(
