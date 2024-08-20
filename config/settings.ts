@@ -1,35 +1,38 @@
 import Constants from "expo-constants";
 
+const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+const clientId = process.env.EXPO_PUBLIC_API_CLIENT_ID;
+
 const settings = {
     dev: {
-        apiUrl: 'https://awesome.scot',
+        apiUrl: apiUrl,
         authCallbackURL: 'oauth2/callback',
-        clientId: 'be121740bf988b2225a313fa1f107ca1',
+        clientId: clientId,
         discovery: {
-            authEndpoint: 'https://awesome.scot/en_GB/oauth2/authorize',
-            tokenEndpoint: 'https://awesome.scot/en_GB/oauth2/token',
+            authEndpoint: apiUrl + '/en_GB/oauth2/authorize',
+            tokenEndpoint: apiUrl + '/en_GB/oauth2/token',
         },
         scheme: 'bone',
         xDebugHeader: true,
     },
     staging: {
-        apiUrl: 'https://awesome.scot',
+        apiUrl: apiUrl,
         authCallbackURL: 'oauth2/callback',
-        clientId: '',
+        clientId: clientId,
         discovery: {
-            authEndpoint: '',
-            tokenEndpoint: '',
+            authEndpoint: apiUrl + '/en_GB/oauth2/authorize',
+            tokenEndpoint: apiUrl + '/en_GB/oauth2/token',
         },
         scheme: 'bone',
         xDebugHeader: false,
     },
     prod: {
-        apiUrl: 'https://awesome.scot',
+        apiUrl: apiUrl,
         authCallbackURL: 'oauth2/callback',
-        clientId: '',
+        clientId: clientId,
         discovery: {
-            authEndpoint: '',
-            tokenEndpoint: '',
+            authEndpoint: apiUrl + '/en_GB/oauth2/authorize',
+            tokenEndpoint: apiUrl + '/en_GB/oauth2/token',
         },
         scheme: 'bone',
         xDebugHeader: false,

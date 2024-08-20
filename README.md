@@ -37,8 +37,8 @@ git commit -a
 ### dev domain & ssl certificate
 You can edit the virtual host settings if using the Docker LAMP project in the `docker-compose.yml`, `build/httpd/Dockerfile`,
 and `build/httpd/httpd-vhosts.conf`.
-where self signed certificate generation code should be tweaked. The default dev domain is `https://awesome.scot`. Whatever you set
-this domain as, remember to add `127.0.0.1 awesome.scot` (or your custom domain) to your development machine's `/etc/hosts` file.
+where self signed certificate generation code should be tweaked. The default dev domain is `https://awesome.bone`. Whatever you set
+this domain as, remember to add `127.0.0.1 awesome.bone` (or your custom domain) to your development machine's `/etc/hosts` file.
 If you change the domain name, be sure to run `docker compose build`.
 
 Next you need the SSL certificate to be trusted on your iPhone/Android.
@@ -51,7 +51,7 @@ bin/start
 ```
 Open another tab, then jump into the container defined in the LAMP `docker-compose.yml` ...
 ```
-docker compose exec awesome.scot bash
+docker compose exec awesome.bone bash
 cd /etc/ssl/certs
 cat selfsigned.crt
 exit
@@ -66,7 +66,7 @@ The following instructins are for iPhone. Android will be different, but the ide
 - In your iPhone Wifi settings, set the proxy as your dev box IP and port 9090 (or whatever your proxy port is)
 - Open Safari and goto `proxy.man/ssl`, again install the Profile in Settings
 - Finally, go into `Settings > General > About > Certificate Trust Settings`, and switch on Enable Full Trust for both the proxy man cert and your dev domain self signed cert.
-  You should now be able to browse to `https://awesome.scot` on yoour iPhone, with a fully secure padlock.
+  You should now be able to browse to `https://awesome.bone` on yoour iPhone, with a fully secure padlock.
 ### frontend
 Frontend config files that should be changed are the `./app.json` in the project root and the files found in `./app/config`.
 ### backend
