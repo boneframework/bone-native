@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from "react-native";
 import { Tabs } from 'expo-router';
 import {MaterialCommunityIcons} from "@expo/vector-icons";
-import Icon from "@boneframework/native-components//components/Icon";
+import Icon from "@boneframework/native-components/components/Icon";
 import ApiInterceptor from "@boneframework/native-components/components/ApiInterceptor";
 import useNotifications from "@boneframework/native-components/hooks/useNotifications";
 import useStyle from "@boneframework/native-components/hooks/useStyle";
