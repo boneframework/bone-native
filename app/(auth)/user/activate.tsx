@@ -1,16 +1,10 @@
 import React from 'react';
-import {StyleSheet, View} from "react-native";
+import ActivateUserScreen from "@boneframework/native-components/screens/ActivateUserScreen";
 
 function Activate(props) {
     return(
-        <View style={styles.container}>
-
-        </View>
+        <ActivateUserScreen></ActivateUserScreen>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {}
-})
 
 export default Activate;
