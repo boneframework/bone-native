@@ -1,5 +1,6 @@
 export default Object.freeze({
     ACCOUNT_SCREEN: 'account',
+    HOME: '(app)',
     LISTING_ADD: 'add-listing',
     LISTING_DETAILS: '/details',
     LISTINGS: '(listing)',
