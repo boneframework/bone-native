@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet, Text, View} from "react-native";
-import Constants from 'expo-constants'
+import {FlatList} from "react-native";
 import ListItemSwipable from '@boneframework/native-components/components/ListItemSwipable';
 import ListItemDeleteAction from '@boneframework/native-components/components/ListItemDeleteAction';
 import ListItemSeparator from '@boneframework/native-components/components/ListItemSeparator';
@@ -10,39 +9,39 @@ import {GestureHandlerRootView} from "react-native-gesture-handler";
 const initialMessages = [
     {
         id: 1,
-        title: '@delboy1978uk',
-        description: 'Derek Stephen McLean',
-        image: require('@/assets/delboy.jpg'),
+        title: '@liono',
+        description: 'Hey! Nice one, I see..',
+        image: require('@/assets/images/avatars/lion.png'),
     },
     {
         id: 2,
-        title: '@gbeams97',
-        description: 'Gretl Michielsen',
-        image: require('@/assets/gretl.png'),
+        title: '@pussicus',
+        description: 'Bone Framework rocks!',
+        image: require('@/assets/images/avatars/cat.png'),
     },
     {
         id: 3,
-        title: '@teddy',
-        description: 'Teddicus Maximus',
-        image: require('@/assets/teddy.png'),
+        title: '@doggo',
+        description: 'Totally 😆👌',
+        image: require('@/assets/images/avatars/dog.png'),
     },
     {
         id: 4,
-        title: '@django',
-        description: 'Teddicus Minimus',
-        image: require('@/assets/django.png'),
+        title: '@fantasticmrfox',
+        description: 'You should check it out',
+        image: require('@/assets/images/avatars/fox.png'),
     },
     {
         id: 5,
-        title: '@bonymoo',
-        description: 'The Hieland Coo',
-        image: require('@/assets/moo.png'),
+        title: '@sherekhan',
+        description: 'I\'m gonna build an app!',
+        image: require('@/assets/images/avatars/tiger.png'),
     },
     {
         id: 6,
-        title: '@mosh',
-        description: 'Mosh Hamedani',
-        image: require('@/assets/mosh.jpg'),
+        title: '@kirra',
+        description: 'You know what to do 😉',
+        image: require('@/assets/images/avatars/koala.png'),
     },
 ];
 
@@ -51,14 +50,14 @@ function Messages() {
     const [messages, setMessages] = useState(initialMessages);
     const [refreshing, setRefreshing] = useState(false);
     const handleDelete = message => {
-        // delete call to server, then upon success:
+        // do an api delete call to server, then upon success:
         setMessages(messages.filter(m => m.id !== message.id));
     }
     const renderItem = ({item}) =>
         <ListItemSwipable title={item.title}
                           subtitle={item.description}
                           image={item.image}
-                          onPress={() => alert('do smething!')}
+                          onPress={() => alert('do something!')}
                           renderRightActions={() => (<ListItemDeleteAction onPress={() => handleDelete(item)}/>)}
                           displayCheverons={true}
         />;

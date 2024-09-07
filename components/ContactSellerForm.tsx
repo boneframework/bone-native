@@ -31,7 +31,7 @@ function ContactSellerForm({listing}) {
 
         Notifications.scheduleNotificationAsync({
             content: {
-                title: "SELL that SHIT 😎",
+                title: "Boom! New notification 😎",
                 body: message,
                 data: { data: 'goes here' },
             },

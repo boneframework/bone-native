@@ -57,8 +57,8 @@ function Details() {
                     <Text style={styles.price}>${listing.price}</Text>
                     <View style={styles.userContainer}>
                         <ListItemSwipable
-                            image={require('@/assets/gretl.png')}
-                            title="Gretl Michielsen"
+                            image={require('@/assets/images/avatars/rabbit.png')}
+                            title="Bunny Bee"
                             subtitle="5 listings"
                         />
                     </View>
