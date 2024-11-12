@@ -8,5 +8,6 @@ export default {
     medium: '#999',
     darkish: '#333',
     dark: '#222',
-    danger: '#ff5200'
+    danger: '#ff5200',
+    bgGradient: ['#001C50', '#003698']
 }
