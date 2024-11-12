@@ -79,6 +79,7 @@ export default function SignIn() {
             loginOnPress={beginLogin}
             registerOnPress={() => router.navigate(routes.USER_REGISTRATION)}
             isLoading={isLoading}
+            backgroundSource={require('@/assets/background.png')}
         ></WelcomeScreen>
     );
 }
