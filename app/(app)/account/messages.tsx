@@ -60,6 +60,7 @@ function Messages() {
                           onPress={() => alert('do something!')}
                           renderRightActions={() => (<ListItemDeleteAction onPress={() => handleDelete(item)}/>)}
                           displayCheverons={true}
+                          titleStyle={{fontWeight: "500"}}
         />;
 
     return (
