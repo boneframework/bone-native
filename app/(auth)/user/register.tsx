@@ -3,6 +3,8 @@ import RegisterScreen from "@boneframework/native-components/screens/RegisterScr
 export default function Register() {
     return (
         <RegisterScreen
+            backgroundSource={require('@/assets/logo.png')}
+            logoSource={require('@/assets/logo.png')}
             postRegisterUrl={'/user/check-your-email'}
         ></RegisterScreen>
     );

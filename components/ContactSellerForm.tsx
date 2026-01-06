@@ -2,7 +2,9 @@ import React from "react";
 import {Alert, Keyboard} from "react-native";
 // import * as Notifications from "expo-notifications";
 import * as Yup from "yup";
-import {Form, FormField, SubmitButton} from "@boneframework/native-components/components/forms";
+import Form from "@boneframework/native-components/components/forms/Form";
+import FormField from "@boneframework/native-components/components/forms/FormField";
+import SubmitButton from "@boneframework/native-components/components/forms/SubmitButton";
 import notificationsApi from "@boneframework/native-components/api/notifications";
 
 // Notifications.setNotificationHandler({

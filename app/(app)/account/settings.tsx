@@ -4,7 +4,7 @@ import {FlatList, StyleSheet, View} from "react-native";
 import ListItemFlipswitch from '@boneframework/native-components/components/ListItemFlipswitch'
 import Icon from '@boneframework/native-components/components/Icon'
 import Screen from '@boneframework/native-components/components/Screen'
-import colors from '@/config/colors'
+import useColors from '@boneframework/native-components/hooks/useColors'
 import ListItemSeparator from "@boneframework/native-components/components/ListItemSeparator";
 import routes from "@/config/routes";
 import useAuth from "@boneframework/native-components/hooks/useAuth";
@@ -16,6 +16,7 @@ import ActivityIndicator from "@boneframework/native-components/components/Activ
 function Settings({ navigation }) {
     const [toggleEmail, setToggleEmail] = useState(true);
     const style = useStyle();
+    const colors = useColors();
     const getSettingsApi = useApi(userApi.userSettings);
     const updateSettingsApi = useApi(userApi.updateUserSettings);
     const settings = {

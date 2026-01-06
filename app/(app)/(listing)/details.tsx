@@ -7,13 +7,14 @@ import Image from '@boneframework/native-components/components/Image';
 import {useLocalSearchParams} from 'expo-router';
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 
-import colors from '../../../config/colors'
+import useColors from '@boneframework/native-components/hooks/useColors';
 import ContactSellerForm from '@/components/ContactSellerForm';
 
 function Details() {
     const payload = useLocalSearchParams();
     const listing = JSON.parse(payload.item);
     const style = useStyle();
+    const colors = useColors();
     const styles = StyleSheet.create({
         container: {
             flex: 1,

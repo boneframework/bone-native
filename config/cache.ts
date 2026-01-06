@@ -5,5 +5,5 @@ export default {
         '/en_GB/api/user/register',
         '/en_GB/api/user/acivate',
     ],
-    'cacheExpiryMinutes': 15
+    cacheExpiryMinutes: 15
 }

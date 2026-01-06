@@ -6,13 +6,11 @@ import UploadScreen from '@boneframework/native-components/screens/UploadScreen'
 import useLocation from '@boneframework/native-components/hooks/useLocation'
 import useStyle from "@boneframework/native-components/hooks/useStyle";
 import CategoryPickerItem from '@boneframework/native-components/components/CategoryPickerItem'
-import {
-    Form,
-    FormField,
-    FormImagePicker,
-    FormPicker,
-    SubmitButton
-} from '@boneframework/native-components/components/forms'
+import Form from '@boneframework/native-components/components/forms/Form'
+import FormField from '@boneframework/native-components/components/forms/FormField'
+import FormImagePicker from '@boneframework/native-components/components/forms/FormImagePicker'
+import FormPicker from '@boneframework/native-components/components/forms/FormPicker'
+import SubmitButton from '@boneframework/native-components/components/forms/SubmitButton'
 import Screen from '@boneframework/native-components/components/Screen'
 import Text from '@boneframework/native-components/components/Text'
 

@@ -2,17 +2,18 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from "react-native";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 
-import colors from '../config/colors'
 import useStyle from "@boneframework/native-components/hooks/useStyle";
+import useColors from "@boneframework/native-components/hooks/useColors";
 
 function NewListingButton({ onPress }) {
     const style = useStyle();
+    const colors = useColors();
 
     const styles = StyleSheet.create({
         container: {
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'tomato',
+            backgroundColor: colors.primary,
             borderColor: style.backgroundColor,
             borderWidth: 10,
             borderRadius: 40,

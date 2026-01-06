@@ -6,42 +6,45 @@ import Screen from '@boneframework/native-components/components/Screen'
 import ListItemSeparator from "@boneframework/native-components/components/ListItemSeparator";
 import useAuth from "@boneframework/native-components/hooks/useAuth";
 import useStyle from "@boneframework/native-components/hooks/useStyle";
+import useColors from "@boneframework/native-components/hooks/useColors";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 
-import colors from '@/config/colors'
 import routes from "../../../config/routes";
 import {router} from "expo-router";
 
-const menuItems = [
-    {
-        title: "Settings",
-        icon: {
-            name: "cog",
-            backgroundColor: colors.primary
-        },
-        targetScreen: '/account/settings'
-    },
-    {
-        title: "Sample Map",
-        icon: {
-            name: "map-marker",
-            backgroundColor: colors.secondary
-        },
-        targetScreen: '/account/map'
-    },
-    {
-        title: "My Messages",
-        icon: {
-            name: "email",
-            backgroundColor: colors.primary
-        },
-        targetScreen: '/account/messages'
-    },
-];
+
 
 function Index() {
     const { user, logout } = useAuth();
     const style = useStyle();
+    const colors = useColors();
+
+    const menuItems = [
+        {
+            title: "Settings",
+            icon: {
+                name: "cog",
+                backgroundColor: colors.primary
+            },
+            targetScreen: '/account/settings'
+        },
+        {
+            title: "Sample Map",
+            icon: {
+                name: "map-marker",
+                backgroundColor: colors.secondary
+            },
+            targetScreen: '/account/map'
+        },
+        {
+            title: "My Messages",
+            icon: {
+                name: "email",
+                backgroundColor: colors.primary
+            },
+            targetScreen: '/account/messages'
+        },
+    ];
 
     const styles = StyleSheet.create({
         screen: {
