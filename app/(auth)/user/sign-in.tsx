@@ -10,6 +10,7 @@ import usersApi from "@boneframework/native-components/api/users";
 import {useEffect} from "react";
 import routes from "@/config/routes";
 import settings from "@/config/settings";
+// import MapScreen from '@boneframework/native-components/screens/MapScreen';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -75,6 +76,7 @@ export default function SignIn() {
 
 
     return (
+        // <MapScreen></MapScreen>
         <WelcomeScreen
             loginOnPress={beginLogin}
             registerOnPress={() => router.navigate(routes.USER_REGISTRATION)}

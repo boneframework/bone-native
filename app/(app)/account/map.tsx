@@ -1,9 +1,12 @@
 import React from 'react';
-import MapScreen from '@boneframework/native-components/screens/MapScreen';
+import { View, Text } from 'react-native';
+// import MapScreen from '@boneframework/native-components/screens/MapScreen';
 
 function Map(props: any) {
     return (
-        <MapScreen />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Map screen will be available after rebuilding the dev client</Text>
+        </View>
     );
 }
 
