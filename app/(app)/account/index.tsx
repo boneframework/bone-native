@@ -7,7 +7,6 @@ import ListItemSeparator from "@boneframework/native-components/components/ListI
 import useAuth from "@boneframework/native-components/hooks/useAuth";
 import useStyle from "@boneframework/native-components/hooks/useStyle";
 import useColors from "@boneframework/native-components/hooks/useColors";
-import {GestureHandlerRootView} from "react-native-gesture-handler";
 
 import routes from "../../../config/routes";
 import {router} from "expo-router";
@@ -57,7 +56,6 @@ function Index() {
 
     return (
         <Screen style={styles.screen}>
-            <GestureHandlerRootView>
                 <View style={styles.container}>
                     <ListItemSwipable
                         title={user.person?.firstname}
@@ -87,7 +85,6 @@ function Index() {
                     }
                     onPress={logout}
                 />
-            </GestureHandlerRootView>
         </Screen>
     );
 }

@@ -4,7 +4,6 @@ import ListItemSwipable from '@boneframework/native-components/components/ListIt
 import ListItemDeleteAction from '@boneframework/native-components/components/ListItemDeleteAction';
 import ListItemSeparator from '@boneframework/native-components/components/ListItemSeparator';
 import Screen from '@boneframework/native-components/components/Screen';
-import {GestureHandlerRootView} from "react-native-gesture-handler";
 
 const initialMessages = [
     {
@@ -65,16 +64,14 @@ function Messages() {
 
     return (
         <Screen>
-            <GestureHandlerRootView>
-                <FlatList
-                    data={messages}
-                    keyExtractor={item => item.id.toString()}
-                    renderItem={renderItem}
-                    ItemSeparatorComponent={() => <ListItemSeparator/>}
-                    refreshing={refreshing}
-                    onRefresh={() => setMessages(initialMessages)}
-                />
-            </GestureHandlerRootView>
+            <FlatList
+                data={messages}
+                keyExtractor={item => item.id.toString()}
+                renderItem={renderItem}
+                ItemSeparatorComponent={() => <ListItemSeparator/>}
+                refreshing={refreshing}
+                onRefresh={() => setMessages(initialMessages)}
+            />
         </Screen>
     );
 }

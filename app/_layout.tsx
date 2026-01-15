@@ -16,20 +16,20 @@ function RootLayout() {
     const navTheme = useNavigationTheme();
 
     return (
-        <ThemeProvider value={navTheme}>
-            <SessionProvider>
-                <Slot/>
-            </SessionProvider>
-        </ThemeProvider>
+        <GestureHandlerRootView>
+            <ThemeProvider value={navTheme}>
+                <SessionProvider>
+                    <Slot/>
+                </SessionProvider>
+            </ThemeProvider>
+        </GestureHandlerRootView>
     );
 }
 
 export default function Root() {
     return (
-        <GestureHandlerRootView style={{flex: 1}}>
             <BoneNativeProvider api={api} cache={cache} colors={colors} settings={settings} routes={routes} styles={styles}>
                 <RootLayout />
             </BoneNativeProvider>
-        </GestureHandlerRootView>
     );
 }

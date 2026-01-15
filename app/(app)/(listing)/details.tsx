@@ -5,7 +5,6 @@ import useStyle from "@boneframework/native-components/hooks/useStyle";
 import {KeyboardAvoidingView, Platform, StyleSheet, View} from "react-native";
 import Image from '@boneframework/native-components/components/Image';
 import {useLocalSearchParams} from 'expo-router';
-import {GestureHandlerRootView} from "react-native-gesture-handler";
 
 import useColors from '@boneframework/native-components/hooks/useColors';
 import ContactSellerForm from '@/components/ContactSellerForm';
@@ -46,27 +45,25 @@ function Details() {
     });
 
     return (
-        <GestureHandlerRootView>
-            <KeyboardAvoidingView
-                behavior="position"
-                keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
-                style={styles.container}
-            >
-                <Image style={styles.image} preview={{uri: listing.images[0].thumbnailUrl}} uri={listing.images[0].url } />
-                <View style={styles.detailsContainer}>
-                    <Text style={styles.title}>{listing.title}</Text>
-                    <Text style={styles.price}>${listing.price}</Text>
-                    <View style={styles.userContainer}>
-                        <ListItemSwipable
-                            image={require('@/assets/images/avatars/rabbit.png')}
-                            title="Bunny Bee"
-                            subtitle="5 listings"
-                        />
-                    </View>
+        <KeyboardAvoidingView
+            behavior="position"
+            keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+            style={styles.container}
+        >
+            <Image style={styles.image} preview={{uri: listing.images[0].thumbnailUrl}} uri={listing.images[0].url } />
+            <View style={styles.detailsContainer}>
+                <Text style={styles.title}>{listing.title}</Text>
+                <Text style={styles.price}>${listing.price}</Text>
+                <View style={styles.userContainer}>
+                    <ListItemSwipable
+                        image={require('@/assets/images/avatars/rabbit.png')}
+                        title="Bunny Bee"
+                        subtitle="5 listings"
+                    />
                 </View>
-                <ContactSellerForm listing={listing} />
-            </KeyboardAvoidingView>
-        </GestureHandlerRootView>
+            </View>
+            <ContactSellerForm listing={listing} />
+        </KeyboardAvoidingView>
     );
 }
 
