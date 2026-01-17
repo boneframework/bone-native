@@ -13,7 +13,7 @@ const settings = {
             tokenEndpoint: apiUrl + '/en_GB/oauth2/token',
         },
         scheme: 'bone',
-        xDebugHeader: false,
+        xDebugHeader: true,
     },
     staging: {
         apiUrl: apiUrl,

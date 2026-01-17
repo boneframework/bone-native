@@ -6,7 +6,7 @@ import routes from "@/config/routes";
 
 function Activate(props) {
     return(
-        <ActivateUserScreen settings={settings} loginRedirect={routes.HOME}></ActivateUserScreen>
+        <ActivateUserScreen settings={settings} loginRedirect={routes.HOME} backgroundSource={require('../../../assets/background.png')}></ActivateUserScreen>
     );
 }
 

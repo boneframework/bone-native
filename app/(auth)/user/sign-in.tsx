@@ -47,6 +47,7 @@ export default function SignIn() {
             const { code } = response.params;
             getAccessToken(code);
         }
+
     }, [response]);
 
     const beginLogin = () => {
@@ -72,7 +73,6 @@ export default function SignIn() {
             })
             .catch(error => console.error(error));
     }
-
 
 
     return (

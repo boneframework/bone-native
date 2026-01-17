@@ -3,7 +3,7 @@ import React from "react";
 
 function CheckYourEmail(props) {
     return (
-        <CheckEmailScreen></CheckEmailScreen>
+        <CheckEmailScreen backgroundSource={require('../../../assets/background.png')}></CheckEmailScreen>
     );
 }
 
