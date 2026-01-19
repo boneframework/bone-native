@@ -37,6 +37,10 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+        [ "expo-maps",{
+          "requestLocationPermission": true,
+          "locationPermission": "Allow $(PRODUCT_NAME) to use your location"
+        }],
       "expo-router",
       "expo-font",
       ["expo-splash-screen",
