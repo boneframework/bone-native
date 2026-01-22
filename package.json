@@ -14,6 +14,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@babel/types": "^7.28.6",
     "@boneframework/native-components": "^1.0.62",
     "@expo/vector-icons": "^15.0.3",
     "@react-native-community/cli-server-api": "^15.1.3",
