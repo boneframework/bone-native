@@ -41,6 +41,7 @@
           "requestLocationPermission": true,
           "locationPermission": "Allow $(PRODUCT_NAME) to use your location"
         }],
+      "expo-android-proxyman",
       "expo-router",
       "expo-font",
       ["expo-splash-screen",
