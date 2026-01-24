@@ -22,6 +22,7 @@
     "@react-navigation/elements": "^2.9.5",
     "@react-navigation/native": "^7.1.28",
     "expo": "~54.0.31",
+    "expo-android-proxyman": "^1.0.1",
     "expo-auth-session": "~7.0.10",
     "expo-constants": "~18.0.13",
     "expo-dev-client": "~6.0.20",
