@@ -18,6 +18,10 @@
       }
     },
     "ios": {
+      "associatedDomains": [
+        'applinks:boneframework.docker',
+        'applinks:boneframework.mcleandigital.co.uk',
+      ],
       "supportsTablet": true,
       "bundleIdentifier": "com.boneframework.bonenative",
       "infoPlist": {
@@ -29,7 +33,11 @@
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.boneframework.bonenative"
+      "package": "com.boneframework.bonenative",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -37,26 +45,32 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-        [ "expo-maps",{
+      [
+        "expo-maps",
+        {
           "requestLocationPermission": true,
           "locationPermission": "Allow $(PRODUCT_NAME) to use your location"
-        }],
+        }
+      ],
       "expo-android-proxyman",
       "expo-router",
       "expo-font",
-      ["expo-splash-screen",
-      {
-        "backgroundColor": "#232323",
-        "image": "./assets/background.png",
-        "dark": {
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#232323",
           "image": "./assets/background.png",
-          "backgroundColor": "#000000"
-        },
-        "imageWidth": 200
-      }]
+          "dark": {
+            "image": "./assets/background.png",
+            "backgroundColor": "#000000"
+          },
+          "imageWidth": 200
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "owner": "delboy1978uk"
   }
 }
